@@ -1,0 +1,19 @@
+name: CI Site iPhone
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Verificar Arquivos
+      run: |
+        ls -la
+        if [ -f "index.html" ]; then echo "Arquivo index.html encontrado!"; else exit 1; fi
+
+    - name: Teste de Sucesso
+      run: echo "O site está pronto para publicação!"
